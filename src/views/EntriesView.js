@@ -111,13 +111,16 @@
     },
     deleteButton_clickHandler: function(event) {
       var _this = this;
-      var message = ("Delete this folder, including contents?");
-      navigator.notification.confirm(message, function(button) {
-        if (button === 1) {
+      window.app.dialogConfirmView.show({
+        title: "Confirm delete",
+        subtitle: "Delete this folder and contents?"
+      }, function(event) {
+        console.log(event);
+        if (event.type === "dialogAccept") {
           _this.collection.theFolder.destroy();
           window.app.navigator.popView(window.app.defaultPopEffect);
         }
-      }, "Confirm delete");
+      });
     },
     close: function() {
       _.each(this.subViews, function(view) {

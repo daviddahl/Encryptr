@@ -43,10 +43,10 @@
         var collection = this.hookupCollection(this.get("folderId"));
         collection.fetch({
           error: function(errmsg) {
-            navigator.notification.alert(
-              "Fetch: " + errmsg,
-              function() {},
-              "Error");
+            window.app.dialogAlertView.show({
+              title: "Server fetch error",
+              subtitle: errmsg
+            }, function(){});
           }
         });
       }
