@@ -60,8 +60,6 @@
     viewActivate: function(event) {
       var _this = this;
 
-      _this.priorEntriesCollection = window.app.currentEntriesCollection;
-      window.app.currentEntriesCollection = _this.collection;
       _this.collection.fetch({
         success: function(entries) {
           _this.addAll();
@@ -87,10 +85,6 @@
 
     },
     viewDeactivate: function(event) {
-      // Reestablish prior entries collection. Will be superceded when
-      // another entries view is activated.
-      window.app.currentEntriesCollection = this.priorEntriesCollection;
-
       if (this.collection.theFolder) {
         $(".nav .back-btn").addClass("hidden");
         $(".nav .btn.right").addClass("hidden");

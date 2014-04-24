@@ -32,7 +32,7 @@
       else {
         model = new window.app.EntryModel(new window.app.types[typeModel]());
       }
-      model.container = window.app.currentEntriesCollection.container;
+      model.container = window.app.navigator.activeView.collection.container;
       window.app.navigator.pushView(window.app.EditView, {
         model: model
       }, window.app.defaultEffect);
