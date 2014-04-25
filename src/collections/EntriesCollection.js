@@ -25,7 +25,8 @@
               it = new Encryptr.prototype.FolderModel(entry);
             }
             else {
-              it = new _this.model(entry);
+              // Can't use _this.model() because FolderModel twiddles it.
+              it = new Encryptr.prototype.EntryModel(entry);
             }
             it.container = container;
             return it;
